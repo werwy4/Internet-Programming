@@ -1,0 +1,46 @@
+LAMP stands for Linux, Apache, MySQL, and PHP. It is a software stack used to develop and run dynamic websites.
+Component	Function
+Linux	Operating system that manages hardware and software resources.
+Apache	Web server that receives HTTP requests and serves web content.
+MySQL	Database management system used to store and retrieve data.
+PHP	Server-side programming language used to create dynamic webpages.
+Working: The browser sends a request to Apache. Apache serves static files or passes PHP requests to the PHP interpreter. PHP interacts with MySQL when database operations are required. The generated response is sent back to the browser.
+2. Key components of the WAMP stack
+WAMP stands for Windows, Apache, MySQL, and PHP.
+
+Component	Function
+Windows	Operating system that provides the development environment.
+Apache	Handles HTTP requests and responses.
+MySQL	Stores application data.
+PHP	Processes server-side application logic.
+WAMP provides a convenient environment for developing and testing web applications on Windows computers. Packages such as WampServer simplify installation and configuration.
+Comparison between LAMP and WAMP
+Feature	LAMP	WAMP
+Operating system	Linux	Windows
+Web server	Apache	Apache
+Database	MySQL	MySQL
+Server-side language	PHP	PHP
+Common use	Linux server deployment	Windows development and testing
+3. Role of the Apache web server
+Apache is responsible for receiving HTTP requests from browsers and returning the appropriate responses.
+Its major functions are:
+1.	Accepting HTTP and HTTPS requests.
+2.	Serving static files such as HTML, CSS, and images.
+3.	Passing dynamic requests to PHP.
+4.	Supporting virtual hosts for multiple websites.
+5.	Managing access rules and server configuration.
+6.	Returning HTTP status codes such as 200, 404, and 500.
+4. Installation procedures
+LAMP on Linux (Ubuntu):
+sudo apt update
+sudo apt install apache2 mysql-server php libapache2-mod-php php-mysql
+sudo systemctl enable --now apache2
+sudo systemctl enable --now mysql
+Open http://localhost in a browser to test Apache.
+WAMP on Windows:
+1.	Download WampServer from its official website.
+2.	Install it by following the setup instructions.
+3.	Start the WampServer services.
+4.	Ensure Apache and MySQL are running.
+5.	Open http://localhost in a browser.
+6.	Place PHP project files in the WampServer web root, commonly www.
