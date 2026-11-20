@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Paragraph</title>
+    <style>
+        .highlight {
+            color: blue;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .highlight:hover {
+            background: yellow;
+        }
+
+        .changed {
+            color: red;
+            font-size: 22px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h2>College Website</h2>
+
+    <p id="para">
+        Welcome to our
+        <span class="highlight">college</span>.
+        We encourage
+        <span class="highlight">learning</span>
+        and
+        <span class="highlight">innovation</span>.
+    </p>
+
+    <button onclick="changeStyle()">Change Style</button>
+
+    <script>
+        function changeStyle() {
+            document.getElementById("para")
+                .classList.toggle("changed");
+        }
+    </script>
+</body>
+</html>
