@@ -1,0 +1,115 @@
+HTML and CSS code
+Create the following files in the same folder.
+File 1: index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bike Showroom</title>
+</head>
+<frameset rows="20%,80%">
+    <frame src="header.html" name="top">
+    <frameset cols="25%,75%">
+        <frame src="brands.html" name="left">
+        <frame src="honda.html" name="right">
+    </frameset>
+</frameset>
+</html>
+File 2: header.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Showroom Header</title>
+    <style>
+        body {
+            background-color: #172554;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Speed Wheels Bike Showroom</h1>
+    <p>Choose Your Dream Bike</p>
+</body>
+</html>
+File 3: brands.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bike Brands</title>
+    <style>
+        body {
+            background-color: #e0f2fe;
+            font-family: Arial, sans-serif;
+        }
+        a {
+            display: block;
+            padding: 12px;
+            color: #1d4ed8;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #bfdbfe;
+        }
+    </style>
+</head>
+<body>
+    <h2>Bike Brands</h2>
+    <a href="honda.html" target="right">Honda</a>
+    <a href="yamaha.html" target="right">Yamaha</a>
+    <a href="royal.html" target="right">Royal Enfield</a>
+</body>
+</html>
+c) HTML structure for displaying bike specifications
+File 4: honda.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Honda Bikes</title>
+</head>
+<body>
+    <h2>Honda Bike Models</h2>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Model</th>
+            <th>Engine</th>
+            <th>Transmission</th>
+        </tr>
+        <tr>
+            <td>Shine</td>
+            <td>125 cc</td>
+            <td>Manual</td>
+        </tr>
+        <tr>
+            <td>SP 125</td>
+            <td>125 cc</td>
+            <td>Manual</td>
+        </tr>
+    </table>
+</body>
+</html>
+File 5: yamaha.html
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Yamaha Bike Models</h2>
+    <ul>
+        <li>FZ – 149 cc</li>
+        <li>R15 – 155 cc</li>
+        <li>MT-15 – 155 cc</li>
+    </ul>
+</body>
+</html>
+File 6: royal.html
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Royal Enfield Models</h2>
+    <ul>
+        <li>Classic 350 – 349 cc</li>
+        <li>Hunter 350 – 349 cc</li>
+        <li>Bullet 350 – 349 cc</li>
+    </ul>
+</body>
+</html>
