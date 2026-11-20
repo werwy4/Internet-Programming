@@ -1,0 +1,88 @@
+Save as job.html.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Application</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eaf2f8;
+        }
+        form {
+            width: 320px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<form id="jobForm">
+    <h2>Job Application</h2>
+
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+
+    <label>Highest Qualification:</label>
+    <select id="degree" required>
+        <option value="">Select Degree</option>
+        <option>B.Tech</option>
+        <option>B.Sc</option>
+        <option>B.Com</option>
+        <option>M.Tech</option>
+    </select>
+
+    <p>Gender:</p>
+    <label><input type="radio" name="gender" value="Male"> Male</label>
+    <label><input type="radio" name="gender" value="Female"> Female</label>
+    <label><input type="radio" name="gender" value="Other"> Other</label>
+
+    <br><br>
+    <button type="submit">Submit</button>
+    <button type="reset">Cancel</button>
+</form>
+
+<script>
+document.getElementById("jobForm").addEventListener("submit",
+function(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let degree = document.getElementById("degree").value;
+    let gender = document.querySelector(
+        'input[name="gender"]:checked'
+    );
+
+    if (name === "") {
+        alert("Please enter your name");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert("Enter a valid email address");
+    } else if (degree === "") {
+        alert("Select your qualification");
+    } else if (!gender) {
+        alert("Select your gender");
+    } else {
+        alert("Application validated successfully!");
+    }
+});
+</script>
+</body>
+</html>
