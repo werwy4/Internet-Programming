@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Listing</title>
+</head>
+<body>
+    <h1>Mobile Phone Store</h1>
+
+    <img src="phone.jpg" alt="Mobile phone" width="200">
+
+    <h2>Features</h2>
+    <ul>
+        <li>High-resolution display</li>
+        <li>Long-lasting battery</li>
+        <li>Fast processor</li>
+    </ul>
+
+    <h2>Product Details</h2>
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Smartphone A</td>
+            <td>₹15,000</td>
+        </tr>
+        <tr>
+            <td>Smartphone B</td>
+            <td>₹20,000</td>
+        </tr>
+    </table>
+</body>
+</html>
+Example HTTP request
+GET /products.html HTTP/1.1
+Host: example.com
+Accept: text/html
+Example HTTP response
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+<html>
+<body>
+<h1>Mobile Phone Store</h1>
+</body>
+</html>
+Common HTTP status codes
+Status code	Meaning
+200	OK
+301	Moved Permanently
+400	Bad Request
+403	Forbidden
+404	Not Found
+500	Internal Server Error
