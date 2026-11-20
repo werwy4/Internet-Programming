@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Events and Search</title>
+</head>
+<body>
+    <h2>Search Suggestions</h2>
+
+    <input type="text" id="search"
+           placeholder="Type a language">
+
+    <ul id="suggestions"></ul>
+    <p id="status"></p>
+
+    <script>
+        let search = document.getElementById("search");
+        let status = document.getElementById("status");
+        let list = document.getElementById("suggestions");
+
+        let languages = [
+            "HTML", "CSS", "JavaScript",
+            "Python", "Java", "C++"
+        ];
+
+        search.addEventListener("focus", function() {
+            status.textContent = "Search field selected.";
+        });
+
+        search.addEventListener("blur", function() {
+            status.textContent = "Search field lost focus.";
+        });
+
+        search.addEventListener("keydown", function(event) {
+            status.textContent = "Key pressed: " + event.key;
+        });
+
+        search.addEventListener("input", function() {
+            let query = search.value.toLowerCase();
+            list.replaceChildren();
+
+            let matches = languages.filter(function(language) {
+                return language.toLowerCase().includes(query);
+            });
+
+            matches.forEach(function(language) {
+                let item = document.createElement("li");
+                item.textContent = language;
+
+                item.addEventListener("click", function() {
+                    search.value = language;
+                    list.replaceChildren();
+                });
+
+                list.appendChild(item);
+            });
+        });
+    </script>
+</body>
+</html>
+AJAX request example
+The following snippet demonstrates a real request to a server endpoint that must be implemented separately.
+async function loadSuggestions(query) {
+    const response = await fetch(
+        "/api/suggestions?q=" + encodeURIComponent(query)
+    );
+
+    if (!response.ok) {
+        throw new Error("Could not load suggestions");
+    }
+
+    return await response.json();
+}
+The server should return JSON, for example:
+["JavaScript", "Java"]
