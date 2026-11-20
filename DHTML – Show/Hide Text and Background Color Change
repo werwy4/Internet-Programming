@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DHTML Show Hide</title>
+
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Show and Hide Text</h2>
+
+    <button onclick="showText()">Show</button>
+    <button onclick="hideText()">Hide</button>
+
+    <p id="text" style="display:none;">
+        Welcome to Dynamic HTML!
+    </p>
+
+    <h2>Hover Over a Square</h2>
+
+    <div class="square"
+         style="background:red"
+         onmouseover="changeBg('red')"
+         onmouseout="resetBg()"></div>
+
+    <div class="square"
+         style="background:blue"
+         onmouseover="changeBg('blue')"
+         onmouseout="resetBg()"></div>
+
+    <script>
+        function showText() {
+            document.getElementById("text").style.display = "block";
+        }
+
+        function hideText() {
+            document.getElementById("text").style.display = "none";
+        }
+
+        function changeBg(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        function resetBg() {
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+</body>
+</html>
