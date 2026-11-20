@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Comparison and Word Search</title>
+</head>
+<body>
+    <h2>Compare Two Numbers</h2>
+
+    <input type="number" id="n1" placeholder="First number">
+    <input type="number" id="n2" placeholder="Second number">
+    <button onclick="compareNumbers()">Compare</button>
+
+    <p id="result"></p>
+
+    <h2>Search a Word</h2>
+
+    <input type="text" id="word" placeholder="Enter a word">
+    <button onclick="searchWord()">Search</button>
+
+    <p id="searchResult"></p>
+
+    <script>
+        function compareNumbers() {
+            let a = document.getElementById("n1").value;
+            let b = document.getElementById("n2").value;
+
+            if (a === "" || b === "") {
+                document.getElementById("result").textContent =
+                    "Enter both numbers.";
+                return;
+            }
+
+            if (Number(a) === Number(b)) {
+                document.getElementById("result").textContent =
+                    "Numbers are equal.";
+            } else {
+                document.getElementById("result").textContent =
+                    "Numbers are not equal.";
+            }
+        }
+
+        function searchWord() {
+            let words = ["HTML", "CSS", "JavaScript", "Python"];
+            let word = document.getElementById("word").value.trim();
+            let index = words.indexOf(word);
+
+            document.getElementById("searchResult").textContent =
+                index !== -1
+                ? "Word found at index: " + index
+                : "Word not found.";
+        }
+    </script>
+</body>
+</html>
