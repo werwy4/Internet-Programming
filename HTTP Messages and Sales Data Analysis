@@ -1,0 +1,55 @@
+a) Simplified snowflake schema
+A snowflake schema organizes data into a central fact table connected to normalized dimension tables.
+FACT_SALES
+Product_ID, Customer_ID, Date_ID, Region_ID, Quantity, Revenue
+DIM_PRODUCT
+Product_ID, Category_ID
+DIM_CUSTOMER
+Customer_ID, Age_Group
+DIM_DATE
+Date_ID, Month, Year
+DIM_REGION
+Region_ID, Region_Name
+The product dimension may link to a separate category dimension, and the region dimension may link to a geography dimension, forming a snowflake structure.
+The fact table stores numerical sales measures, while dimension tables store descriptive information for analysis.
+b) ETL process
+ETL stands for Extract, Transform, and Load.
+1.	Extract: Collect sales data from CSV files, operational databases, and other sources.
+2.	Transform: Remove duplicates, handle missing values, standardize dates, validate product IDs, and calculate revenue.
+3.	Load: Load dimension tables first, then insert sales records into the fact table.
+4.	Validate: Check record counts, totals, and referential integrity.
+c) OLAP operations
+i) Roll-up: Summarizes detailed sales information into a higher-level group, such as total sales by region.
+SELECT r.Region_Name,
+       SUM(f.Revenue) AS Total_Revenue
+FROM FACT_SALES f
+JOIN DIM_REGION r
+ON f.Region_ID = r.Region_ID
+GROUP BY r.Region_Name;
+ii) Dice: Selects a subset of data based on multiple dimensions, such as age groups and product categories.
+SELECT c.Age_Group,
+       p.Category_ID,
+       SUM(f.Revenue) AS Total_Revenue
+FROM FACT_SALES f
+JOIN DIM_CUSTOMER c
+ON f.Customer_ID = c.Customer_ID
+JOIN DIM_PRODUCT p
+ON f.Product_ID = p.Product_ID
+WHERE c.Age_Group IN ('18-25', '26-35')
+  AND p.Category_ID IN (1, 2)
+GROUP BY c.Age_Group, p.Category_ID;
+The example assumes that these age-group labels and category IDs exist in the dataset.
+d) Business insights
+•	Regions with high sales may receive more inventory.
+•	Regions with low sales may need targeted promotions.
+•	Age-group analysis helps identify customer preferences.
+•	Category-level analysis helps with stock planning.
+•	Historical sales trends support future demand forecasting.
+HTTP request and response structure
+An HTTP request contains a request line, headers, a blank line, and optionally a body.
+Example request:
+ An HTTP response contains a status line, headers, a blank line, and optionally a body.
+Example response:
+ 
+
+ 
