@@ -1,0 +1,101 @@
+Create a file named operations.js.
+function factorial(n) {
+    if (!Number.isSafeInteger(n) || n < 0) {
+        return "Enter a non-negative integer";
+    }
+
+    if (n > 170) {
+        return "Number is too large for a JavaScript Number";
+    }
+
+    let result = 1;
+
+    for (let i = 2; i <= n; i++) {
+        result *= i;
+    }
+
+    return result;
+}
+
+function sumDigits(n) {
+    if (!Number.isSafeInteger(n)) {
+        return "Enter a valid integer";
+    }
+
+    n = Math.abs(n);
+    let sum = 0;
+
+    while (n > 0) {
+        sum += n % 10;
+        n = Math.floor(n / 10);
+    }
+
+    return sum;
+}
+
+function isPalindrome(str) {
+    str = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+    return str === str.split("").reverse().join("");
+}
+3. HTML file
+Create another file named index.html in the same folder.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Operations</title>
+</head>
+<body>
+    <h2>Select an Operation</h2>
+
+    <select id="operation">
+        <option value="factorial">Factorial</option>
+        <option value="sum">Sum of Digits</option>
+        <option value="palindrome">Palindrome</option>
+    </select>
+
+    <input type="text" id="input"
+           placeholder="Enter number or text">
+
+    <button onclick="executeOperation()">Execute</button>
+
+    <p id="result"></p>
+
+    <script src="operations.js"></script>
+
+    <script>
+        function executeOperation() {
+            let operation =
+                document.getElementById("operation").value;
+
+            let input =
+                document.getElementById("input").value.trim();
+
+            let result;
+
+            if (input === "") {
+                result = "Please enter a value.";
+            } else if (operation === "factorial") {
+                if (!/^\d+$/.test(input)) {
+                    result = "Enter a non-negative integer.";
+                } else {
+                    result = factorial(Number(input));
+                }
+            } else if (operation === "sum") {
+                if (!/^-?\d+$/.test(input)) {
+                    result = "Enter an integer.";
+                } else {
+                    result = sumDigits(Number(input));
+                }
+            } else {
+                result = isPalindrome(input)
+                    ? "The string is a palindrome."
+                    : "The string is not a palindrome.";
+            }
+
+            document.getElementById("result").textContent =
+                "Result: " + result;
+        }
+    </script>
+</body>
+</html>
