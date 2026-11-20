@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DHTML Effects</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .square {
+            width: 80px;
+            height: 80px;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .red { background: red; }
+        .green { background: green; }
+        .blue { background: blue; }
+
+        #panel {
+            margin: 30px auto;
+            padding: 30px;
+            width: 250px;
+            background: lightgray;
+        }
+
+        .shake {
+            animation: shake 0.1s infinite;
+        }
+
+        @keyframes shake {
+            0%   { transform: translateX(-5px); }
+            50%  { transform: translateX(5px); }
+            100% { transform: translateX(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <h2>Change Background Color</h2>
+
+    <div class="square red"
+         onmouseover="changeColor('red')"></div>
+
+    <div class="square green"
+         onmouseover="changeColor('green')"></div>
+
+    <div class="square blue"
+         onmouseover="changeColor('blue')"></div>
+
+    <div id="panel">
+        <h3>Interactive Panel</h3>
+        <button onclick="startShake()">Start Shake</button>
+        <button onclick="stopShake()">Stop Shake</button>
+    </div>
+
+    <script>
+        function changeColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        function startShake() {
+            document.getElementById("panel")
+                .classList.add("shake");
+        }
+
+        function stopShake() {
+            document.getElementById("panel")
+                .classList.remove("shake");
+        }
+    </script>
+</body>
+</html>
